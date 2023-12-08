@@ -1,5 +1,7 @@
 Require Import Reals.
 Require Import Classical_Prop.
+Require Import Coq.Logic.Classical_Prop.
+
 Open Scope R_scope.
 
 (* Q1a, proving correct negation*)
@@ -15,4 +17,24 @@ Proof.
     apply Rnot_lt_le. assumption.
   - right.
     apply Rnot_gt_ge. assumption.
+Qed.
+
+(* Q2a, proving corrected version *)
+
+Lemma q2a : forall a b c : Prop, a /\ ~(b /\ c) <-> a /\ (~b \/ ~c).
+Proof.
+  intros a b c.
+  split.
+  - (* left to right *)
+    intros [Ha Hbc].
+    split.
+    + assumption.
+    + apply not_and_or.
+      assumption.
+  - (* right to left *)
+    intros [Ha Hbc].
+    split.
+    + assumption.
+    + apply or_not_and.
+      assumption.
 Qed.
