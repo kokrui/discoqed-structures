@@ -38,3 +38,25 @@ Proof.
     + apply or_not_and.
       assumption.
 Qed.
+
+(* Q2b, proving corrected version *)
+
+Lemma q2b : forall x y z : Prop, ~(x \/ y) \/ z <-> (~x /\ ~y) \/ z.
+Proof.
+  intros x y z.
+  split.
+  - (* left to right *)
+    intros [Hxy|Hz].
+    + left.
+      apply not_or_and.
+      assumption.
+    + right.
+      assumption.
+  - (* right to left *)
+    intros [Hxy|Hz].
+    + left.
+      apply and_not_or.
+      assumption.
+    + right.
+      assumption.
+Qed.
