@@ -46,14 +46,14 @@ Proof.
   intros x y z.
   split.
   - (* left to right *)
-    intros [Hxy|Hz].
+    intros [Hnxy|Hz].
     + left.
       apply not_or_and.
       assumption.
     + right.
       assumption.
   - (* right to left *)
-    intros [Hxy|Hz].
+    intros [Hnxy|Hz].
     + left.
       apply and_not_or.
       assumption.
