@@ -60,3 +60,17 @@ Proof.
     + right.
       assumption.
 Qed.
+
+(* Q3a, proving simplification *)
+
+Lemma q3a : forall a b : Prop, (~a /\ (~a -> (b /\ a))) <-> False.
+Proof.
+  split.
+  - (* left to right *)
+    intros [Hna Himp].
+    destruct (Himp Hna) as [Hb Ha].
+    contradiction Ha.
+  - (* right to left *)
+    intros H.
+    destruct H.
+Qed.
