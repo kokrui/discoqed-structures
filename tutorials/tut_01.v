@@ -1,6 +1,6 @@
 Require Import Reals.
 Require Import Classical_Prop.
-Require Import Coq.Logic.Classical_Prop.
+Require Import ClassicalFacts.
 
 Open Scope R_scope.
 
