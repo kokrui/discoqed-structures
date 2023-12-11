@@ -77,7 +77,7 @@ Qed.
 
 (* Q3b, proving simplification *)
 
-Lemma statement2 : forall p q : Prop, ((p \/ ~q) -> q) <-> q.
+Lemma q3b : forall p q : Prop, ((p \/ ~q) -> q) <-> q.
 Proof.
   split.
   - (* left to right *)
