@@ -74,3 +74,21 @@ Proof.
     intros H.
     destruct H.
 Qed.
+
+(* Q3b, proving simplification *)
+
+Lemma statement2 : forall p q : Prop, ((p \/ ~q) -> q) <-> q.
+Proof.
+  split.
+  - (* left to right *)
+    intros H.
+    apply NNPP.
+    intro Hnq.
+    apply Hnq.
+    apply H.
+    right.
+    assumption.
+  - (* right to left *)
+    intros Hq Hp_or_nq.
+    assumption.
+Qed.
