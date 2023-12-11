@@ -92,3 +92,33 @@ Proof.
     intros Hq Hp_or_nq.
     assumption.
 Qed.
+
+(* Q3c, proving simplification *)
+
+Lemma q3c : forall p q : Prop, (~(p \/ ~q) \/ (~p /\ ~q)) <-> ~p.
+Proof.
+  intros p q.
+  split.
+  - (* -> *)
+    intros [Hnp_or_nq | [Hnp Hnq]].
+    + apply NNPP.
+      intro Hp.
+      apply Hnp_or_nq.
+      left.
+      apply NNPP.
+      assumption.
+    + assumption.
+  - (* <- *)
+    intros Hnp.
+    destruct (classic q) as [Hq | Hnq].
+    + left.
+      unfold not.
+      intros H.
+      destruct H as [Hp | Hnq'].
+      * contradiction (Hnp Hp).
+      * contradiction Hq.
+    + right.
+      split.
+      * assumption.
+      * assumption.
+Qed.
